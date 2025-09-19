@@ -13,17 +13,28 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   ├── Services.astro
+│   │   ├── About.astro
+│   │   └── Contact.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── en/
+│   │   │   └── index.astro
+│   │   └── it/
+│   │       └── index.astro
+│   └── utils/
+│       └── i18n.ts
+├── astro.config.mjs
+├── package.json
+└── tailwind.config.mjs
 ```
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).

@@ -1,0 +1,146 @@
+---
+import { getLangFromUrl, useTranslations, languages } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a
+          href={lang === "de" ? "/" : `/${lang}`}
+          class="text-2xl font-bold text-primary"
+        >
+          Daniel Mayer
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-8">
+          <a
+            href={lang === "de" ? "/" : `/${lang}`}
+            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+          >
+            {t("nav.home")}
+          </a>
+          <a
+            href="#services"
+            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+          >
+            {t("nav.services")}
+          </a>
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+          >
+            {t("nav.about")}
+          </a>
+          <a
+            href="#contact"
+            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+          >
+            {t("nav.contact")}
+          </a>
+        </div>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="relative">
+        <select
+          id="language-select"
+          class="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          {
+            Object.entries(languages).map(([code, name]) => (
+              <option value={code} selected={code === lang}>
+                {name}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-button"
+          class="text-gray-700 hover:text-primary cursor-pointer"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        <a
+          href={lang === "de" ? "/" : `/${lang}`}
+          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+        >
+          {t("nav.home")}
+        </a>
+        <a
+          href="#services"
+          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+        >
+          {t("nav.services")}
+        </a>
+        <a
+          href="#about"
+          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+        >
+          {t("nav.about")}
+        </a>
+        <a
+          href="#contact"
+          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+        >
+          {t("nav.contact")}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document
+    .getElementById("mobile-menu-button")
+    ?.addEventListener("click", () => {
+      const menu = document.getElementById("mobile-menu");
+      menu?.classList.toggle("hidden");
+    });
+
+  // Language switcher
+  document
+    .getElementById("language-select")
+    ?.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const selectedLang = target.value;
+      const currentPath = window.location.pathname;
+
+      let newPath = "/";
+      if (selectedLang !== "de") {
+        newPath = `/${selectedLang}`;
+      }
+
+      window.location.href = newPath;
+    });
+</script>

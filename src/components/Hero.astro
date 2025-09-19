@@ -1,0 +1,67 @@
+---
+import { Picture } from "astro:assets";
+
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+import heroPicMobile from "../assets/images/hero.avif";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="bg-gradient-to-br from-slate-50 to-blue-50 py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+      <div
+        class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left"
+      >
+        <h1
+          class="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl"
+        >
+          {t("hero.title")}
+        </h1>
+        <p
+          class="mt-3 text-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+        >
+          {t("hero.subtitle")}
+        </p>
+        <p class="mt-8 text-lg text-gray-700 leading-relaxed">
+          {t("hero.description")}
+        </p>
+        <div
+          class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0"
+        >
+          <a
+            href="#contact"
+            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            {t("hero.cta")}
+            <svg
+              class="ml-2 h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="mt-12 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
+      >
+        <Picture
+          formats={["avif", "webp"]}
+          src={heroPicMobile}
+          class="rounded-md"
+          width="550"
+          densities={[1, 2, 3]}
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/700.css";
 
 export interface Props {
   title: string;
@@ -13,15 +15,13 @@ const { title, lang = "de" } = Astro.props;
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Steuerberatung Leipzig - Daniel Mayer" />
+    <meta
+      name="description"
+      content="Steuerberatung Daniel Meyer - mehrsprachig, papierlos, zukunftssicher"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="16x16" href="/lm_logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Rimuovi queste 3 righe -->
     <title>{title}</title>
   </head>
   <body class="font-sans bg-background">

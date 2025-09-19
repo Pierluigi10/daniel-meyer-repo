@@ -1,14 +1,95 @@
 ---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "../utils/i18n";
 
 const lang = getLangFromUrl(new URL(Astro.request.url));
 const t = useTranslations(lang);
 ---
 
-<head>
-  <title>{t("imprint.title")}</title>
-</head>
-<body>
-  <h1>{t("imprint.title")}</h1>
-  <p>{t("imprint.content")}</p>
-</body>
+<Layout title={t("imprint.title")} lang={lang}>
+  <Header />
+  <main>
+    <section id="impressum" class="py-16 bg-white text-gray-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-8">
+          <h1 class="text-3xl font-bold">Impressum</h1>
+          <p class="text-sm text-gray-600">
+            Angaben gemäß § 5 TMG und §§ 2, 3 DL-InfoV
+          </p>
+        </header>
+
+        <article class="space-y-8 text-base leading-relaxed">
+          <section>
+            <h2 class="text-xl font-semibold">Anbieter</h2>
+            <p>
+              Meyer Tax<br />
+              Schulze-Boysen-Str. 2, 04317 Leipzig<br />
+              E-Mail: <a href="mailto:info@tax-meyer.de">info@tax-meyer.de</a>
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Inhaber</h2>
+            <p>Daniel Meyer</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Berufsbezeichnung</h2>
+            <p>
+              Wirtschaftsprüfer (verliehen in der Bundesrepublik Deutschland)
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Zuständige Aufsichtsbehörde</h2>
+            <p>
+              Wirtschaftsprüferkammer<br />
+              Rauchstr. 26, 10787 Berlin
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Berufsrechtliche Regelungen</h2>
+            <p>Wirtschaftsprüferordnung (WPO)</p>
+            <p>Berufssatzung für Wirtschaftsprüfer (BS WP/vBP)</p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Berufshaftpflichtversicherung</h2>
+            <p>
+              VSW AG & Co. eGbR<br />
+              Biebricher Allee 2, 65187 Wiesbaden<br />
+              Geltungsbereich: Europäische Union
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Haftungsausschluss</h2>
+            <p>
+              Der Inhaber Daniel Meyer hat keinen Einfluss auf Inhalte,
+              Gestaltung oder Verfügbarkeit externer Websites, auf die verlinkt
+              wird, und übernimmt hierfür keine Verantwortung.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold">Urheberrecht</h2>
+            <p>
+              Durch die Nutzung dieser Website wird keine Lizenz oder ein
+              Nutzungsrecht an Bildern oder Logos eingeräumt. Daniel Meyer und
+              deren Inhaber behalten sich alle Rechte vor. Alle Elemente dieser
+              Website unterliegen dem Urheberrecht.
+            </p>
+            <p>
+              Verwendete Fotografien sind ggf. mit Bildnachweisen versehen oder
+              unten aufgeführt, sofern sie nicht selbst erstellt wurden. Eine
+              Verwendung auf Drittseiten ist nur im Rahmen der jeweiligen
+              Lizenzen zulässig.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

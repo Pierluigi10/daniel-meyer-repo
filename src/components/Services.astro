@@ -35,15 +35,46 @@ const t = useTranslations(lang);
             ></path>
           </svg>
         </div>
+
         <h3 class="text-xl font-semibold text-gray-900 mb-4">
           {t("services.tax")}
         </h3>
-        <p class="text-gray-800 leading-relaxed">
-          {t("services.tax.subtitle")}
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          {t("services.tax.desc")}
-        </p>
+
+        <!-- Accordion -->
+        <details class="group">
+          <summary
+            class="flex justify-between items-center cursor-pointer list-none"
+          >
+            <p class="text-gray-800 leading-relaxed font-medium">
+              {t("services.tax.subtitle")}
+            </p>
+            <svg
+              class="w-6 h-6 text-gray-500 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="group-open:hidden"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              <path
+                class="hidden group-open:block"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 12H6"></path>
+            </svg>
+          </summary>
+
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-gray-600 leading-relaxed">
+              {t("services.tax.desc")}
+            </p>
+          </div>
+        </details>
       </div>
 
       <!-- Service 2 -->
@@ -67,15 +98,46 @@ const t = useTranslations(lang);
             ></path>
           </svg>
         </div>
+
         <h3 class="text-xl font-semibold text-gray-900 mb-4">
           {t("services.accounting")}
         </h3>
-        <p class="text-gray-800 leading-relaxed">
-          {t("services.accounting.subtitle")}
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          {t("services.accounting.desc")}
-        </p>
+
+        <!-- Accordion -->
+        <details class="group">
+          <summary
+            class="flex justify-between items-center cursor-pointer list-none"
+          >
+            <p class="text-gray-800 leading-relaxed font-medium">
+              {t("services.accounting.subtitle")}
+            </p>
+            <svg
+              class="w-6 h-6 text-gray-500 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="group-open:hidden"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              <path
+                class="hidden group-open:block"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 12H6"></path>
+            </svg>
+          </summary>
+
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-gray-600 leading-relaxed">
+              {t("services.accounting.desc")}
+            </p>
+          </div>
+        </details>
       </div>
 
       <!-- Service 3 -->
@@ -99,16 +161,82 @@ const t = useTranslations(lang);
             ></path>
           </svg>
         </div>
+
         <h3 class="text-xl font-semibold text-gray-900 mb-4">
           {t("services.consulting")}
         </h3>
-        <p class="text-gray-800 leading-relaxed">
-          {t("services.consulting.subtitle")}
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          {t("services.consulting.desc")}
-        </p>
+
+        <!-- Accordion -->
+        <details class="group">
+          <summary
+            class="flex justify-between items-center cursor-pointer list-none"
+          >
+            <p class="text-gray-800 leading-relaxed font-medium">
+              {t("services.consulting.subtitle")}
+            </p>
+            <svg
+              class="w-6 h-6 text-gray-500 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="group-open:hidden"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              <path
+                class="hidden group-open:block"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 12H6"></path>
+            </svg>
+          </summary>
+
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-gray-600 leading-relaxed">
+              {t("services.consulting.desc")}
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Rimuovi il marker di default */
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Animazione smooth per l'apertura */
+  details[open] summary ~ * {
+    animation: accordion-open 0.3s ease-out;
+  }
+
+  @keyframes accordion-open {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover effect per il summary */
+  summary:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+    padding: 8px;
+    margin: -8px;
+  }
+</style>

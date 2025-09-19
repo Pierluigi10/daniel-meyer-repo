@@ -40,23 +40,21 @@ const t = useTranslations(lang);
           <h3 class="text-lg font-semibold text-gray-900 mb-1">
             {t("contact.email")}
           </h3>
-          <p class="text-gray-600">info@daniel-mayer.de</p>
+          <p class="text-gray-600">info@tax-meyer.de</p>
         </div>
       </div>
 
       <!-- Calendly Embed Area -->
       <div class="p-6 bg-gray-50 rounded-lg text-left lg:text-center">
         <h3 class="text-lg font-semibold text-gray-900 mb-4">
-          Termine online buchen
+          {t("contact.appointment")}
         </h3>
-        <p class="text-gray-600 mb-4">
-          Buchen Sie direkt einen Termin für ein kostenloses Erstgespräch.
-        </p>
+
         <button
           id="calendly-button"
-          class="inline-flex items-center justify-center px-6 py-2 bg-primary text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer lg:mx-auto"
+          class="inline-flex items-center justify-center px-6 py-2 bg-primary text-white rounded-md hover:bg-primary-lite transition-colors cursor-pointer lg:mx-auto"
         >
-          Termin buchen
+          {t("contact.appointment.button")}
         </button>
 
         <!-- Calendly Embed -->

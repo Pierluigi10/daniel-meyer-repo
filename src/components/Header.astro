@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
           href={lang === "de" ? "/" : `/${lang}`}
           class="text-2xl font-bold text-primary"
         >
-          Daniel Mayer
+          Meyer Tax
         </a>
       </div>
 
@@ -25,31 +25,31 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={lang === "de" ? "/" : `/${lang}`}
-              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+              class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.home")}
             </a>
           </li>
           <li>
             <a
-              href="#services"
-              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+              href={lang === "de" ? "/#services" : `/${lang}/#services`}
+              class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.services")}
             </a>
           </li>
           <li>
             <a
-              href="#about"
-              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+              href={lang === "de" ? "/#about" : `/${lang}/#about`}
+              class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.about")}
             </a>
           </li>
           <li>
             <a
-              href="#contact"
-              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+              href={lang === "de" ? "/#contact" : `/${lang}/#contact`}
+              class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.contact")}
             </a>
@@ -100,25 +100,25 @@ const currentPath = Astro.url.pathname;
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
         <a
           href={lang === "de" ? "/" : `/${lang}`}
-          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
         >
           {t("nav.home")}
         </a>
         <a
-          href="#services"
-          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+          href={lang === "de" ? "/#services" : `/${lang}/#services`}
+          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
         >
           {t("nav.services")}
         </a>
         <a
-          href="#about"
-          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+          href={lang === "de" ? "/#about" : `/${lang}/#about`}
+          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
         >
           {t("nav.about")}
         </a>
         <a
-          href="#contact"
-          class="text-gray-700 hover:text-primary block px-3 py-2 text-base font-medium"
+          href={lang === "de" ? "/#contact" : `/${lang}/#contact`}
+          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
         >
           {t("nav.contact")}
         </a>
@@ -138,7 +138,6 @@ const currentPath = Astro.url.pathname;
     });
   }
 
-  // Chiudi il menu quando si clicca su un link nel menu mobile
   if (mobileMenu) {
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {

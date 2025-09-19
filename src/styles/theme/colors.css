@@ -33,8 +33,10 @@
   --color-text-light: var(--color-neutral-50);
   --color-on-primary: var(--color-white);
 
-
-
+  /* Background & Surface */
   --color-background: #f9f9f7;
-  --color-surface: var(--color-background)
+  --color-surface: var(--color-background);
+
+  /* Gradient for Hero Section */
+  --gradient-hero: linear-gradient(to bottom right, #f8fafc, #eff6ff);
 }

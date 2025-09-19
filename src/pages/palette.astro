@@ -1,0 +1,104 @@
+---
+const colors = [
+  { name: "--color-primary-darker", hex: "#0b2e44" },
+  { name: "--color-primary-dark", hex: "#154866" },
+  { name: "--color-primary", hex: "#1f6b8f" },
+  { name: "--color-primary-lite", hex: "#5296b9" },
+  { name: "--color-primary-light", hex: "#b2d3e7" },
+  { name: "--color-primary-lighter", hex: "#e4f0f8" },
+
+  { name: "--color-secondary-darker", hex: "#2c4b42" },
+  { name: "--color-secondary-dark", hex: "#4e6b61" },
+  { name: "--color-secondary", hex: "#7aa093" },
+  { name: "--color-secondary-lite", hex: "#a6c6bb" },
+  { name: "--color-secondary-light", hex: "#d3e3dd" },
+  { name: "--color-secondary-lighter", hex: "#f0f6f4" },
+
+  { name: "--color-neutral-100", hex: "#0e0e0e" },
+  { name: "--color-neutral-90", hex: "#2a2a2a" },
+  { name: "--color-neutral-70", hex: "#4f4f4f" },
+  { name: "--color-neutral-50", hex: "#7a7a7a" },
+  { name: "--color-neutral-30", hex: "#bfbfbf" },
+  { name: "--color-neutral-10", hex: "#f5f5f5" },
+  { name: "--color-white", hex: "#ffffff" },
+
+  { name: "--color-accent", hex: "#f2b705" },
+  { name: "--color-accent-light", hex: "#f8d87c" },
+
+  { name: "--color-background", hex: "#f9f9f7" },
+];
+
+const gradients = [
+  {
+    name: "--gradient-hero",
+    css: "linear-gradient(to bottom right, #f8fafc, #eff6ff)",
+  },
+];
+---
+
+<style>
+  .palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .color-box {
+    width: 120px;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+  }
+  .swatch {
+    height: 50px;
+    width: 100%;
+  }
+  .label {
+    padding: 0.5rem;
+    background: #fff;
+    color: #333;
+  }
+
+  .gradient-box {
+    width: 240px;
+    height: 80px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+  .gradient-label {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<h2>Colors</h2>
+<div class="palette">
+  {
+    colors.map(({ name, hex }) => (
+      <div class="color-box" title={`${name} - ${hex}`}>
+        <div class="swatch" style={`background-color: ${hex};`} />
+        <div class="label">
+          {name}
+          <br />
+          {hex}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<h2>Gradients</h2>
+<div>
+  {
+    gradients.map(({ name, css }) => (
+      <div>
+        <div class="gradient-label">{name}</div>
+        <div class="gradient-box" style={`background: ${css};`} />
+      </div>
+    ))
+  }
+</div>

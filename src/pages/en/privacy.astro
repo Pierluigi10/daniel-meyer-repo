@@ -1,0 +1,14 @@
+---
+import { getLangFromUrl, useTranslations } from "../../utils/i18n";
+
+const lang = getLangFromUrl(new URL(Astro.request.url));
+const t = useTranslations(lang);
+---
+
+<head>
+  <title>{t("datenschutz.title")}</title>
+</head>
+<body>
+  <h1>{t("datenschutz.title")}</h1>
+  <p>{t("datenschutz.content")}</p>
+</body>

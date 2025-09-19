@@ -26,15 +26,22 @@ Inside of your Astro project, you'll see the following folders and files:
 │   │   └── Layout.astro
 │   ├── pages/
 │   │   ├── index.astro
+│   |   ├── impressum.astro
+│   |   ├── datenschutz.astro 
 │   │   ├── en/
 │   │   │   └── index.astro
+│   │   │   ├── imprint.astro
+│   │   │   └── privacy.astro
 │   │   └── it/
 │   │       └── index.astro
+│   │       ├── impressum.astro
+│   │       └── protezionedati.astro
+│   │  
 │   └── utils/
 │       └── i18n.ts
 ├── astro.config.mjs
 ├── package.json
-└── tailwind.config.mjs
+
 ```
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).

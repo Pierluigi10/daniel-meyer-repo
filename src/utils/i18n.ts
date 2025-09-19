@@ -29,7 +29,13 @@ export const translations = {
     'contact.address': 'ForzaNapoli Str. 4, 04109 Leipzig',
     'contact.phone': 'Telefon',
     'contact.email': 'E-Mail',
-    'footer.copyright': '© 2025 Daniel Mayer. Alle Rechte vorbehalten.'
+    'footer.copyright': '© 2025 Daniel Mayer. Alle Rechte vorbehalten.',
+    'footer.impressum': 'Impressum',
+    'footer.datenschutz': 'Datenschutz',
+    'imprint.title': 'Impressum',
+    'imprint.content': 'Hier steht dein Impressum-Text...',
+    'datenschutz.title': 'Datenschutz',
+    'datenschutz.content': 'Hier steht dein Datenschutz-Text...'
   },
   en: {
     'nav.home': 'Home',
@@ -53,7 +59,13 @@ export const translations = {
     'contact.address': 'ForzaNapoli Str. 4, 04109 Leipzig',
     'contact.phone': 'Phone',
     'contact.email': 'Email',
-    'footer.copyright': '© 2025 Daniel Mayer. All rights reserved.'
+    'footer.copyright': '© 2025 Daniel Mayer. All rights reserved.',
+    'footer.impressum': 'Imprint',
+    'footer.datenschutz': 'Privacy Policy',
+    'imprint.title': 'Imprint',
+    'imprint.content': 'Your imprint/legal notice goes here...',
+    'datenschutz.title': 'Privacy Policy',
+    'datenschutz.content': 'Your privacy policy goes here...'
   },
   it: {
     'nav.home': 'Home',
@@ -77,7 +89,13 @@ export const translations = {
     'contact.address': 'ForzaNapoli Str. 4, 04109 Leipzig',
     'contact.phone': 'Telefono',
     'contact.email': 'Email',
-    'footer.copyright': '© 2025 Daniel Mayer. Tutti i diritti riservati.'
+    'footer.copyright': '© 2025 Daniel Mayer. Tutti i diritti riservati.',
+    'footer.impressum': 'Impressum',
+    'footer.datenschutz': 'Protezione dati',
+    'imprint.title': 'Impressum',
+    'imprint.content': 'Qui va il testo dell\'Impressum...',
+    'datenschutz.title': 'Protezione dati',
+    'datenschutz.content': 'Qui va il testo sulla protezione dati...'
   }
 };
 

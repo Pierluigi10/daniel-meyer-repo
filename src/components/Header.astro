@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-white shadow-sm sticky top-0 z-50">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
       <div class="flex-shrink-0">
@@ -20,34 +20,42 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Navigation -->
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-8">
-          <a
-            href={lang === "de" ? "/" : `/${lang}`}
-            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-          >
-            {t("nav.home")}
-          </a>
-          <a
-            href="#services"
-            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-          >
-            {t("nav.services")}
-          </a>
-          <a
-            href="#about"
-            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-          >
-            {t("nav.about")}
-          </a>
-          <a
-            href="#contact"
-            class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-          >
-            {t("nav.contact")}
-          </a>
-        </div>
-      </div>
+      <nav class="hidden md:block" aria-label="Hauptnavigation">
+        <ul class="ml-10 flex items-baseline space-x-8">
+          <li>
+            <a
+              href={lang === "de" ? "/" : `/${lang}`}
+              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+            >
+              {t("nav.home")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+            >
+              {t("nav.services")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+            >
+              {t("nav.about")}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+            >
+              {t("nav.contact")}
+            </a>
+          </li>
+        </ul>
+      </nav>
 
       <!-- Language Switcher -->
       <div class="relative">
@@ -116,7 +124,7 @@ const currentPath = Astro.url.pathname;
         </a>
       </div>
     </div>
-  </nav>
+  </div>
 </header>
 
 <script>

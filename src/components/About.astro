@@ -1,6 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from '../utils/i18n';
-
+import { Picture } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+import AboutPic from "../assets/images/Leipzig_von_oben.jpg";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -10,81 +11,130 @@ const t = useTranslations(lang);
     <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
       <div>
         <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-8">
-          {t('about.title')}
+          {t("about.title")}
         </h2>
         <p class="text-lg text-gray-700 leading-relaxed mb-8">
-          {t('about.description')}
+          {t("about.description")}
         </p>
-        
+
         <div class="space-y-6">
           <div class="flex items-start">
             <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-8 h-8 bg-primary rounded-full">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              <div
+                class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
                 </svg>
               </div>
             </div>
             <div class="ml-4">
-              <h4 class="text-lg font-semibold text-gray-900">Lorem ipsum dolor</h4>
-              <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                Lorem ipsum dolor
+              </h4>
+              <p class="text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod tempor.
+              </p>
             </div>
           </div>
 
           <div class="flex items-start">
             <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-8 h-8 bg-primary rounded-full">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              <div
+                class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
                 </svg>
               </div>
             </div>
             <div class="ml-4">
-              <h4 class="text-lg font-semibold text-gray-900">Consectetur adipiscing</h4>
-              <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                Consectetur adipiscing
+              </h4>
+              <p class="text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod tempor.
+              </p>
             </div>
           </div>
 
           <div class="flex items-start">
             <div class="flex-shrink-0">
-              <div class="flex items-center justify-center w-8 h-8 bg-primary rounded-full">
-                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              <div
+                class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
                 </svg>
               </div>
             </div>
             <div class="ml-4">
-              <h4 class="text-lg font-semibold text-gray-900">Sed do eiusmod</h4>
-              <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p>
+              <h4 class="text-lg font-semibold text-gray-900">
+                Sed do eiusmod
+              </h4>
+              <p class="text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod tempor.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="mt-12 lg:mt-0">
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-4 mb-12">
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
-            <div class="text-3xl font-bold text-primary mb-2">10+</div>
-            <div class="text-gray-600">Lorem ipsum</div>
+            <div class="text-3xl font-bold text-primary mb-2">{">10"}</div>
+            <div class="text-gray-600">{t("stats.experience")}</div>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
             <div class="text-3xl font-bold text-primary mb-2">500+</div>
-            <div class="text-gray-600">Dolor sit amet</div>
+            <div class="text-gray-600">{t("stats.projects")}</div>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
-            <div class="text-3xl font-bold text-primary mb-2">99%</div>
-            <div class="text-gray-600">Consectetur</div>
+            <div class="text-3xl font-bold text-primary mb-2">8+</div>
+            <div class="text-gray-600">{t("stats.sector")}</div>
           </div>
           <div class="bg-white p-6 rounded-lg shadow-md text-center">
-            <div class="text-3xl font-bold text-primary mb-2">24/7</div>
-            <div class="text-gray-600">Adipiscing</div>
+            <div class="text-3xl font-bold text-primary mb-2">{"<48h"}</div>
+            <div class="text-gray-600">{t("stats.support")}</div>
           </div>
         </div>
 
-        <div class="mt-8">
-          <img class="rounded-lg shadow-lg w-full" 
-               src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-               alt="Team">
+        <div
+          class="mt-12 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
+        >
+          <Picture
+            formats={["avif", "webp"]}
+            src={AboutPic}
+            class="rounded-md"
+            width="650"
+            densities={[1, 2, 3]}
+            alt=""
+          />
         </div>
       </div>
     </div>

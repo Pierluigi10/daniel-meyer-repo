@@ -1,19 +1,19 @@
 @theme inline static {
-  /* Primary - Blue petrolio */
-  --color-primary-darker: #0b2e44;
-  --color-primary-dark:   #154866;
-  --color-primary:        #1f6b8f;
-  --color-primary-lite:   #5296b9;
-  --color-primary-light:  #b2d3e7;
-  --color-primary-lighter:#e4f0f8;
+  /* Primary - Blu Petrolio */
+  --color-primary-darker:   #142543;
+  --color-primary-dark:     #1a2f55;
+  --color-primary:          #203864; /* base */
+  --color-primary-lite:     #506193;
+  --color-primary-light:    #8e9dc1;
+  --color-primary-lighter:  #d7deec;
 
-  /* Secondary - Verde salvia */
-  --color-secondary-darker: #2c4b42;
-  --color-secondary-dark:   #4e6b61;
-  --color-secondary:        #7aa093;
-  --color-secondary-lite:   #a6c6bb;
-  --color-secondary-light:  #d3e3dd;
-  --color-secondary-lighter:#f0f6f4;
+  /* Secondary - Verde-grigio soft */
+  --color-secondary-darker: #2c3d34;
+  --color-secondary-dark:   #4a6155;
+  --color-secondary:        #7d9888;
+  --color-secondary-lite:   #a6bdb0;
+  --color-secondary-light:  #d3e1db;
+  --color-secondary-lighter:#f1f6f3;
 
   /* Neutral */
   --color-neutral-100: #0e0e0e;

@@ -3,16 +3,23 @@ import "../styles/global.css";
 import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/700.css";
 
+import CookieConsent from "../components/CookieConsent.astro";
+import { useTranslations, languages } from "../utils/i18n";
+
 export interface Props {
   title: string;
   lang?: string;
 }
 
 const { title, lang = "de" } = Astro.props;
+
+const safeLang = (lang in languages ? lang : "de") as keyof typeof languages;
+
+const t = useTranslations(safeLang);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={safeLang}>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -21,10 +28,10 @@ const { title, lang = "de" } = Astro.props;
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="16x16" href="/lm_logo.png" />
-    <!-- Rimuovi queste 3 righe -->
     <title>{title}</title>
   </head>
   <body class="font-sans bg-background">
     <slot />
+    <CookieConsent lang={safeLang} t={t} />
   </body>
 </html>

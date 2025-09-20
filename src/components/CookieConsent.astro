@@ -1,0 +1,248 @@
+---
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const CONSENT_KEY = "cookie:consent:v1";
+---
+
+<div
+  id="cookie-banner"
+  class="fixed inset-x-0 bottom-0 z-[1000] mx-4 mb-4 md:mx-auto md:max-w-3xl rounded-lg border border-neutral-30 bg-white shadow-2xl p-4 md:p-6 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cookie-title"
+  aria-describedby="cookie-desc"
+>
+  <div class="flex items-start gap-4">
+    <div
+      class="flex-shrink-0 w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center"
+    >
+      <svg
+        class="w-6 h-6 text-primary"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path d="M20 12a8 8 0 11-9-7.938A5 5 0 0018 8a4 4 0 002 4z"></path>
+        <circle cx="8.5" cy="13.5" r="1"></circle>
+        <circle cx="12" cy="10" r="1"></circle>
+        <circle cx="16" cy="13" r="1"></circle>
+      </svg>
+    </div>
+
+    <div class="flex-1">
+      <h2
+        id="cookie-title"
+        class="text-base md:text-lg font-semibold text-neutral-90"
+      >
+        {t("cookies.title")}
+      </h2>
+      <p id="cookie-desc" class="mt-1 text-sm text-neutral-70">
+        {t("cookies.description")}
+      </p>
+
+      <details class="mt-3 group">
+        <summary
+          class="text-sm font-medium text-primary hover:text-primary-lite cursor-pointer list-none"
+        >
+          {t("cookies.manage")}
+        </summary>
+
+        <div class="mt-3 grid grid-cols-1 gap-3">
+          <label
+            class="flex items-start gap-3 p-3 rounded-md border border-neutral-30"
+          >
+            <input
+              type="checkbox"
+              checked
+              disabled
+              class="mt-1 accent-primary"
+            />
+            <div>
+              <div class="text-sm font-medium text-neutral-90">
+                {t("cookies.cat.essential")}
+                <span
+                  class="ml-2 inline-block text-[11px] px-2 py-0.5 rounded bg-neutral-10 text-neutral-70 border border-neutral-30"
+                >
+                  {t("cookies.always_on")}
+                </span>
+              </div>
+              <p class="text-xs text-neutral-70 mt-0.5">
+                {t("cookies.cat.essential.desc")}
+              </p>
+            </div>
+          </label>
+
+          <label
+            class="flex items-start gap-3 p-3 rounded-md border border-neutral-30"
+          >
+            <input
+              id="consent-analytics"
+              type="checkbox"
+              class="mt-1 accent-primary"
+            />
+            <div>
+              <div class="text-sm font-medium text-neutral-90">
+                {t("cookies.cat.analytics")}
+              </div>
+              <p class="text-xs text-neutral-70 mt-0.5">
+                {t("cookies.cat.analytics.desc")}
+              </p>
+            </div>
+          </label>
+
+          <label
+            class="flex items-start gap-3 p-3 rounded-md border border-neutral-30"
+          >
+            <input
+              id="consent-marketing"
+              type="checkbox"
+              class="mt-1 accent-primary"
+            />
+            <div>
+              <div class="text-sm font-medium text-neutral-90">
+                {t("cookies.cat.marketing")}
+              </div>
+              <p class="text-xs text-neutral-70 mt-0.5">
+                {t("cookies.cat.marketing.desc")}
+              </p>
+            </div>
+          </label>
+        </div>
+      </details>
+
+      <div class="mt-4 flex flex-col sm:flex-row gap-2">
+        <button
+          id="cookie-accept-all"
+          class="inline-flex justify-center items-center px-4 py-2 rounded-md text-white bg-primary hover:bg-primary-lite transition-colors text-sm font-medium"
+        >
+          {t("cookies.accept_all")}
+        </button>
+        <button
+          id="cookie-reject"
+          class="inline-flex justify-center items-center px-4 py-2 rounded-md border border-neutral-30 text-neutral-90 hover:bg-neutral-10 transition-colors text-sm font-medium"
+        >
+          {t("cookies.reject")}
+        </button>
+        <button
+          id="cookie-save"
+          class="inline-flex justify-center items-center px-4 py-2 rounded-md border border-primary text-primary hover:bg-primary-lighter/40 transition-colors text-sm font-medium"
+        >
+          {t("cookies.save")}
+        </button>
+      </div>
+
+      <p class="mt-3 text-xs text-neutral-70">
+        <a
+          href={lang === "de"
+            ? "/datenschutz"
+            : lang === "it"
+              ? "/it/protezionedati"
+              : "/en/privacy"}
+          class="underline hover:text-primary">{t("cookies.link.privacy")}</a
+        >
+        {" · "}
+        <a
+          href={lang === "de"
+            ? "/impressum"
+            : lang === "it"
+              ? "/it/impressum"
+              : "/en/imprint"}
+          class="underline hover:text-primary">{t("cookies.link.imprint")}</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const KEY = "cookie:consent:v1";
+    const banner = document.getElementById("cookie-banner");
+    const btnAll = document.getElementById("cookie-accept-all");
+    const btnReject = document.getElementById("cookie-reject");
+    const btnSave = document.getElementById("cookie-save");
+    const cbAnalytics = document.getElementById("consent-analytics");
+    const cbMarketing = document.getElementById("consent-marketing");
+
+    if (
+      !banner ||
+      !btnAll ||
+      !btnReject ||
+      !btnSave ||
+      !cbAnalytics ||
+      !cbMarketing
+    )
+      return;
+
+    const stored = localStorage.getItem(KEY);
+    if (!stored) banner.classList.remove("hidden");
+
+    function applyConsent(consent) {
+      document.dispatchEvent(
+        new CustomEvent("cookie:consent", { detail: consent })
+      );
+
+      // Esempio: carica script con data-consent="analytics" solo se consentito
+      document
+        .querySelectorAll('[data-consent="analytics"]')
+        .forEach((placeholder) => {
+          if (
+            consent.analytics &&
+            placeholder.tagName === "SCRIPT" &&
+            !placeholder.getAttribute("data-loaded")
+          ) {
+            const src = placeholder.getAttribute("data-src");
+            if (src) {
+              const s = document.createElement("script");
+              s.src = src;
+              s.async = true;
+              placeholder.after(s);
+              placeholder.setAttribute("data-loaded", "true");
+            }
+          }
+        });
+    }
+
+    function saveAndClose(consent) {
+      localStorage.setItem(KEY, JSON.stringify(consent));
+      applyConsent(consent);
+      banner.classList.add("hidden");
+    }
+
+    btnAll.addEventListener("click", () => {
+      saveAndClose({
+        essential: true,
+        analytics: true,
+        marketing: true,
+        ts: Date.now(),
+      });
+    });
+
+    btnReject.addEventListener("click", () => {
+      saveAndClose({
+        essential: true,
+        analytics: false,
+        marketing: false,
+        ts: Date.now(),
+      });
+    });
+
+    btnSave.addEventListener("click", () => {
+      saveAndClose({
+        essential: true,
+        analytics: cbAnalytics.checked,
+        marketing: cbMarketing.checked,
+        ts: Date.now(),
+      });
+    });
+
+    if (stored) {
+      try {
+        applyConsent(JSON.parse(stored));
+      } catch {}
+    }
+  })();
+</script>

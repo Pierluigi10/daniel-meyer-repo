@@ -86,13 +86,11 @@ const ogLocaleByLang = { de: "de_DE", en: "en_US", it: "it_IT" } as const;
 /** Canonical (safe for staging) */
 const canonicalUrl = Astro.url.href;
 
-/** Hreflang (safe for staging: same origin, language prefixes).
- * When you go live with .de/.com, swap the origins accordingly.
- */
+/** Hreflang (staging-safe: same origin, language prefixes) */
 const pathname = Astro.url.pathname;
 const search = Astro.url.search ?? "";
-const pathNoLang = (pathname.replace(/^\/(en|it)(?=\/|$)/, "") || "/") + search;
 const origin = Astro.url.origin;
+const pathNoLang = (pathname.replace(/^\/(en|it)(?=\/|$)/, "") || "/") + search;
 
 const alt = {
   de: `${origin}${pathNoLang}`,
@@ -129,13 +127,13 @@ const orgJsonLd = {
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
 
-    <!-- Hreflang (staging-safe; replace origins at go-live if you split .de/.com) -->
+    <!-- Hreflang (staging-safe; swap origins at go-live if you split .de/.com) -->
     <link rel="alternate" href={alt.de} hreflang="de" />
     <link rel="alternate" href={alt.en} hreflang="en" />
     <link rel="alternate" href={alt.it} hreflang="it" />
     <link rel="alternate" href={xDefault} hreflang="x-default" />
 
-    <!-- Robots (allow indexing; change per-page if needed) -->
+    <!-- Robots -->
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
     <!-- Open Graph -->
@@ -145,20 +143,22 @@ const orgJsonLd = {
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${origin}/og-image.jpg`} />
+    <meta property="og:image" content={`${origin}/og-image.jpg?v=2`} />
+    <meta property="og:image:secure_url" content={`${origin}/og-image.jpg?v=2`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Meyer Tax – Steuerberatung · Tax Consulting · Consulenza fiscale" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={metaDescription} />
-    <meta name="twitter:image" content={`${origin}/og-image.jpg`} />
+    <meta name="twitter:image" content={`${origin}/og-image.jpg?v=2`} />
 
     <!-- JSON-LD Organization -->
-   <script type="application/ld+json" is:inline>
-  {JSON.stringify(orgJsonLd)}
-</script>
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify(orgJsonLd)}
+    </script>
   </head>
   <body class="font-sans bg-background">
     <slot />

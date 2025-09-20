@@ -7,7 +7,7 @@ const lang = getLangFromUrl(new URL(Astro.request.url));
 const t = useTranslations(lang);
 ---
 
-<Layout title={t("imprint.title")} lang={lang}>
+<Layout lang={lang}>
   <Header />
   <main>
     <section id="impressum" class="py-16 bg-white text-gray-900">

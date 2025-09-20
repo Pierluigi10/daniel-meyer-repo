@@ -7,7 +7,7 @@ const lang = getLangFromUrl(new URL(Astro.request.url));
 const t = useTranslations(lang);
 ---
 
-<Layout title={t("imprint.title")} lang={lang}>
+<Layout lang={lang}>
   <Header />
   <main>
     <section id="impressum" class="py-16 bg-white text-gray-900">
@@ -261,20 +261,23 @@ const t = useTranslations(lang);
                 Tel.: <a
                   class="underline"
                   href="tel:+4934123820220"
-                  itemprop="telephone">0341&nbsp;–&nbsp;23820220</a>
+                  itemprop="telephone">0341&nbsp;–&nbsp;23820220</a
+                >
               </p>
               <p>
                 E-Mail: <a
                   class="underline"
                   href="mailto:info@kramer-nuebel.de"
-                  itemprop="email">info@kramer-nuebel.de</a>
+                  itemprop="email">info@kramer-nuebel.de</a
+                >
               </p>
               <p>
                 Website: <a
                   class="underline"
                   href="https://www.kramer-nuebel.de"
                   rel="external noopener"
-                  itemprop="url">www.kramer-nuebel.de</a>
+                  itemprop="url">www.kramer-nuebel.de</a
+                >
               </p>
             </address>
           </section>
@@ -1170,23 +1173,27 @@ const t = useTranslations(lang);
                 <a
                   href="https://de-de.facebook.com/"
                   class="underline"
-                  rel="noopener">Facebook</a>
+                  rel="noopener">Facebook</a
+                >
               </li>
               <li>
                 <a
                   href="https://www.instagram.com/"
                   class="underline"
-                  rel="noopener">Instagram</a>
+                  rel="noopener">Instagram</a
+                >
               </li>
               <li>
                 <a
                   href="https://www.de.linkedin.com/"
                   class="underline"
-                  rel="noopener">LinkedIn</a>
+                  rel="noopener">LinkedIn</a
+                >
               </li>
               <li>
                 <a href="https://www.xing.com/" class="underline" rel="noopener"
-                  >Xing</a>
+                  >Xing</a
+                >
               </li>
             </ul>
           </section>

@@ -3,35 +3,164 @@ import "../styles/global.css";
 import "@fontsource/montserrat/400.css";
 import "@fontsource/montserrat/700.css";
 
-import CookieConsent from "../components/CookieConsent.astro";
-import { useTranslations, languages } from "../utils/i18n";
-
+/** Page props (title/description remain optional; we auto-fill if omitted) */
 export interface Props {
-  title: string;
-  lang?: string;
+  title?: string;
+  description?: string;
+  lang?: "de" | "en" | "it";
 }
 
-const { title, lang = "de" } = Astro.props;
+const { title, description, lang = "de" } = Astro.props;
 
-const safeLang = (lang in languages ? lang : "de") as keyof typeof languages;
+/** Derive the current page key from the path: home | imprint | privacy */
+const path = Astro.url.pathname.toLowerCase();
+function getPageKey(p: string): "home" | "imprint" | "privacy" {
+  if (/(impressum|imprint)/.test(p)) return "imprint";
+  if (/(datenschutz|privacy)/.test(p)) return "privacy";
+  return "home";
+}
+const pageKey = getPageKey(path);
 
-const t = useTranslations(safeLang);
+/** SEO strings per language & page */
+const SEO = {
+  de: {
+    home: {
+      title: "Steuerberatung | Meyer Tax – digital & mehrsprachig",
+      desc:
+        "Digitale, mehrsprachige Steuerberatung. Transparent, sicher, papierlos. Jetzt kostenloses Erstgespräch vereinbaren."
+    },
+    imprint: {
+      title: "Impressum | Meyer Tax",
+      desc:
+        "Rechtliche Angaben zu Meyer Tax – Verantwortliche, Kontakt und Unternehmensinformationen."
+    },
+    privacy: {
+      title: "Datenschutzerklärung | Meyer Tax",
+      desc:
+        "Informationen zur Verarbeitung personenbezogener Daten, Cookies und Ihren Rechten."
+    }
+  },
+  en: {
+    home: {
+      title: "Tax Consulting | Meyer Tax – digital & multilingual",
+      desc:
+        "Digital, multilingual tax consulting. Transparent, secure, paperless. Book a free initial consultation."
+    },
+    imprint: {
+      title: "Imprint | Meyer Tax",
+      desc:
+        "Legal information about Meyer Tax – responsible entity, contact and company details."
+    },
+    privacy: {
+      title: "Privacy Policy | Meyer Tax",
+      desc:
+        "Information about personal data processing, cookies and your rights."
+    }
+  },
+  it: {
+    home: {
+      title: "Consulenza fiscale | Meyer Tax – digitale e multilingue",
+      desc:
+        "Consulenza fiscale digitale e multilingue. Trasparente, sicura, senza carta. Prenota una prima consulenza gratuita."
+    },
+    imprint: {
+      title: "Note legali | Meyer Tax",
+      desc:
+        "Informazioni legali su Meyer Tax – responsabili, contatti e dati societari."
+    },
+    privacy: {
+      title: "Informativa sulla privacy | Meyer Tax",
+      desc:
+        "Informazioni sul trattamento dei dati personali, sui cookie e sui tuoi diritti."
+    }
+  }
+} as const;
+
+/** Final meta title/description with override capability via props */
+const metaTitle = title ?? SEO[lang][pageKey].title;
+const metaDescription = description ?? SEO[lang][pageKey].desc;
+
+/** Locale mapping for Open Graph */
+const ogLocaleByLang = { de: "de_DE", en: "en_US", it: "it_IT" } as const;
+
+/** Canonical (safe for staging) */
+const canonicalUrl = Astro.url.href;
+
+/** Hreflang (safe for staging: same origin, language prefixes).
+ * When you go live with .de/.com, swap the origins accordingly.
+ */
+const pathname = Astro.url.pathname;
+const search = Astro.url.search ?? "";
+const pathNoLang = (pathname.replace(/^\/(en|it)(?=\/|$)/, "") || "/") + search;
+const origin = Astro.url.origin;
+
+const alt = {
+  de: `${origin}${pathNoLang}`,
+  en: `${origin}/en${pathNoLang === "/" ? "/" : pathNoLang}`,
+  it: `${origin}/it${pathNoLang === "/" ? "/" : pathNoLang}`
+} as const;
+const xDefault = alt.en;
+
+/** Basic Organization JSON-LD (minimal & safe for staging) */
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Meyer Tax",
+  "url": origin,
+  "email": "info@tax-meyer.de",
+  "logo": `${origin}/lm_logo.png`,
+  "sameAs": [
+    "https://www.linkedin.com/in/daniel-meyer-7bb221152/"
+  ]
+};
 ---
 
 <!doctype html>
-<html lang={safeLang}>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Steuerberatung Daniel Meyer - mehrsprachig, papierlos, zukunftssicher"
-    />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/lm_logo.png" />
-    <title>{title}</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang (staging-safe; replace origins at go-live if you split .de/.com) -->
+    <link rel="alternate" href={alt.de} hreflang="de" />
+    <link rel="alternate" href={alt.en} hreflang="en" />
+    <link rel="alternate" href={alt.it} hreflang="it" />
+    <link rel="alternate" href={xDefault} hreflang="x-default" />
+
+    <!-- Robots (allow indexing; change per-page if needed) -->
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Meyer Tax" />
+    <meta property="og:locale" content={ogLocaleByLang[lang]} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${origin}/og-image.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={`${origin}/og-image.jpg`} />
+
+    <!-- JSON-LD Organization -->
+   <script type="application/ld+json" is:inline>
+  {JSON.stringify(orgJsonLd)}
+</script>
   </head>
   <body class="font-sans bg-background">
     <slot />
-    <CookieConsent lang={safeLang} t={t} />
   </body>
 </html>

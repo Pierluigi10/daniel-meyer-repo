@@ -13,10 +13,12 @@ const t = useTranslations(lang);
       </h2>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-start"
+    >
       <!-- Service 1 -->
       <div
-        class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+        class="service-card bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col md:min-h-[320px]"
       >
         <div
           class="flex items-center justify-center w-12 h-12 bg-primary rounded-md mb-6"
@@ -36,40 +38,38 @@ const t = useTranslations(lang);
           </svg>
         </div>
 
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-8">
           {t("services.tax")}
         </h3>
 
         <!-- Accordion -->
-        <details class="group">
+        <details class="accordion-item">
           <summary
-            class="flex justify-between items-center cursor-pointer list-none"
+            class="flex justify-between items-center cursor-pointer list-none p-3 -m-3 rounded-lg bg-primary-lighter hover:bg-neutral-10 transition-colors group"
           >
-            <p class="text-gray-800 leading-relaxed font-medium">
+            <p
+              class="text-gray-900 leading-relaxed font-medium group-hover:text-gray-900"
+            >
               {t("services.tax.subtitle")}
             </p>
-            <svg
-              class="w-6 h-6 text-gray-500 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                class="group-open:hidden"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              <path
-                class="hidden group-open:block"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M18 12H6"></path>
-            </svg>
+            <div class="accordion-icon">
+              <svg
+                class="w-6 h-6"
+                style="color: var(--color-primary);"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </div>
           </summary>
 
-          <div class="mt-4 pt-4 border-t border-gray-100">
+          <div class="accordion-content mt-4 pt-4 border-t border-gray-100">
             <p class="text-gray-600 leading-relaxed">
               {t("services.tax.desc")}
             </p>
@@ -79,7 +79,7 @@ const t = useTranslations(lang);
 
       <!-- Service 2 -->
       <div
-        class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+        class="service-card bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col min-h-[320px]"
       >
         <div
           class="flex items-center justify-center w-12 h-12 bg-primary rounded-md mb-6"
@@ -99,40 +99,38 @@ const t = useTranslations(lang);
           </svg>
         </div>
 
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-8">
           {t("services.accounting")}
         </h3>
 
         <!-- Accordion -->
-        <details class="group">
+        <details class="accordion-item">
           <summary
-            class="flex justify-between items-center cursor-pointer list-none"
+            class="flex justify-between items-center cursor-pointer list-none p-3 -m-3 rounded-lg bg-primary-lighter hover:bg-neutral-10 transition-colors group"
           >
-            <p class="text-gray-800 leading-relaxed font-medium">
+            <p
+              class="text-gray-800 leading-relaxed font-medium group-hover:text-gray-900"
+            >
               {t("services.accounting.subtitle")}
             </p>
-            <svg
-              class="w-6 h-6 text-gray-500 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                class="group-open:hidden"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              <path
-                class="hidden group-open:block"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M18 12H6"></path>
-            </svg>
+            <div class="accordion-icon">
+              <svg
+                class="w-6 h-6"
+                style="color: var(--color-primary);"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </div>
           </summary>
 
-          <div class="mt-4 pt-4 border-t border-gray-100">
+          <div class="accordion-content mt-4 pt-4 border-t border-gray-100">
             <p class="text-gray-600 leading-relaxed">
               {t("services.accounting.desc")}
             </p>
@@ -142,7 +140,7 @@ const t = useTranslations(lang);
 
       <!-- Service 3 -->
       <div
-        class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+        class="service-card bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col min-h-[320px]"
       >
         <div
           class="flex items-center justify-center w-12 h-12 bg-primary rounded-md mb-6"
@@ -162,40 +160,38 @@ const t = useTranslations(lang);
           </svg>
         </div>
 
-        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-8">
           {t("services.consulting")}
         </h3>
 
         <!-- Accordion -->
-        <details class="group">
+        <details class="accordion-item">
           <summary
-            class="flex justify-between items-center cursor-pointer list-none"
+            class="flex justify-between items-center cursor-pointer list-none p-3 -m-3 rounded-lg bg-primary-lighter hover:bg-neutral-10 transition-colors group"
           >
-            <p class="text-gray-800 leading-relaxed font-medium">
+            <p
+              class="text-gray-800 leading-relaxed font-medium group-hover:text-gray-900"
+            >
               {t("services.consulting.subtitle")}
             </p>
-            <svg
-              class="w-6 h-6 text-gray-500 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                class="group-open:hidden"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              <path
-                class="hidden group-open:block"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M18 12H6"></path>
-            </svg>
+            <div class="accordion-icon">
+              <svg
+                class="w-6 h-6"
+                style="color: var(--color-primary);"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </div>
           </summary>
 
-          <div class="mt-4 pt-4 border-t border-gray-100">
+          <div class="accordion-content mt-4 pt-4 border-t border-gray-100">
             <p class="text-gray-600 leading-relaxed">
               {t("services.consulting.desc")}
             </p>
@@ -207,7 +203,6 @@ const t = useTranslations(lang);
 </section>
 
 <style>
-  /* Rimuovi il marker di default */
   details > summary {
     list-style: none;
   }
@@ -216,8 +211,22 @@ const t = useTranslations(lang);
     display: none;
   }
 
-  /* Animazione smooth per l'apertura */
-  details[open] summary ~ * {
+  .accordion-item[open] .accordion-icon svg {
+    transform: rotate(45deg);
+    color: var(--color-accent) !important;
+  }
+
+  .accordion-icon svg {
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .accordion-item summary:hover .accordion-icon svg {
+    color: var(--color-primary-dark) !important;
+  }
+
+  .accordion-item[open] .accordion-content {
     animation: accordion-open 0.3s ease-out;
   }
 
@@ -230,13 +239,5 @@ const t = useTranslations(lang);
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* Hover effect per il summary */
-  summary:hover {
-    background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 4px;
-    padding: 8px;
-    margin: -8px;
   }
 </style>

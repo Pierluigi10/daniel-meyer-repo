@@ -13,6 +13,11 @@ const currentPath = Astro.url.pathname;
       <div class="flex-shrink-0">
         <a
           href={lang === "de" ? "/" : `/${lang}`}
+          aria-label={lang === "de"
+            ? "Zur Startseite"
+            : lang === "it"
+              ? "Vai alla pagina iniziale"
+              : "Go to homepage"}
           class="text-2xl font-bold text-primary"
         >
           Meyer Tax
@@ -25,6 +30,11 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={lang === "de" ? "/" : `/${lang}`}
+              aria-label={lang === "de"
+                ? "Gehe zur Startseite"
+                : lang === "it"
+                  ? "Vai alla pagina iniziale"
+                  : "Go to homepage"}
               class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.home")}
@@ -33,6 +43,11 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={lang === "de" ? "/#services" : `/${lang}/#services`}
+              aria-label={lang === "de"
+                ? "Zu unseren Leistungen"
+                : lang === "it"
+                  ? "Vai ai nostri servizi"
+                  : "Go to our services"}
               class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.services")}
@@ -41,6 +56,11 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={lang === "de" ? "/#about" : `/${lang}/#about`}
+              aria-label={lang === "de"
+                ? "Mehr über uns erfahren"
+                : lang === "it"
+                  ? "Scopri di più su di noi"
+                  : "Learn more about us"}
               class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.about")}
@@ -49,6 +69,11 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={lang === "de" ? "/#contact" : `/${lang}/#contact`}
+              aria-label={lang === "de"
+                ? "Kontaktieren Sie uns"
+                : lang === "it"
+                  ? "Contattaci"
+                  : "Contact us"}
               class="text-primary hover:text-primary-light px-2 py-2 text-sm font-medium transition-colors"
             >
               {t("nav.contact")}
@@ -59,9 +84,10 @@ const currentPath = Astro.url.pathname;
 
       <!-- Language Switcher -->
       <div class="relative">
+        <label for="language-select" class="sr-only">Language</label>
         <select
           id="language-select"
-          class="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          class="bg-neutral-10 text-neutral-90 border-2 border-neutral-70 cursor-pointer rounded-md px-3 py-1 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
         >
           {
             Object.entries(languages).map(([code, name]) => (
@@ -73,17 +99,36 @@ const currentPath = Astro.url.pathname;
         </select>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Mobile menu button (accessible) -->
       <div class="md:hidden">
         <button
           id="mobile-menu-button"
-          class="text-gray-700 hover:text-primary cursor-pointer"
+          aria-label={lang === "de"
+            ? "Navigation umschalten"
+            : lang === "it"
+              ? "Apri o chiudi il menu di navigazione"
+              : "Toggle navigation menu"}
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="text-gray-700 hover:text-primary cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-primary"
         >
+          <span class="sr-only"
+            >{
+              lang === "de"
+                ? "Hauptmenü öffnen"
+                : lang === "it"
+                  ? "Apri il menu principale"
+                  : "Open main menu"
+            }</span
+          >
+          <!-- Hamburger icon -->
           <svg
+            id="icon-hamburger"
             class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path
               stroke-linecap="round"
@@ -91,60 +136,123 @@ const currentPath = Astro.url.pathname;
               stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
+          <!-- Close icon -->
+          <svg
+            id="icon-close"
+            class="h-6 w-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-        <a
-          href={lang === "de" ? "/" : `/${lang}`}
-          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
-        >
-          {t("nav.home")}
-        </a>
-        <a
-          href={lang === "de" ? "/#services" : `/${lang}/#services`}
-          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
-        >
-          {t("nav.services")}
-        </a>
-        <a
-          href={lang === "de" ? "/#about" : `/${lang}/#about`}
-          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
-        >
-          {t("nav.about")}
-        </a>
-        <a
-          href={lang === "de" ? "/#contact" : `/${lang}/#contact`}
-          class="text-primary hover:text-primary-light block px-3 py-2 text-base font-medium"
-        >
-          {t("nav.contact")}
-        </a>
-      </div>
-    </div>
+    <nav
+      id="mobile-menu"
+      class="md:hidden hidden"
+      aria-label="Hauptnavigation (mobil)"
+    >
+      <ul class="px-2 pt-2 pb-3 sm:px-3 bg-white space-y-1">
+        <li>
+          <a
+            href={lang === "de" ? "/" : `/${lang}`}
+            aria-label={lang === "de"
+              ? "Gehe zur Startseite"
+              : lang === "it"
+                ? "Vai alla pagina iniziale"
+                : "Go to homepage"}
+            class="block px-3 py-2 text-base font-medium text-primary hover:text-primary-light transition-colors rounded"
+          >
+            {t("nav.home")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={lang === "de" ? "/#services" : `/${lang}/#services`}
+            aria-label={lang === "de"
+              ? "Zu unseren Leistungen"
+              : lang === "it"
+                ? "Vai ai nostri servizi"
+                : "Go to our services"}
+            class="block px-3 py-2 text-base font-medium text-primary hover:text-primary-light transition-colors rounded"
+          >
+            {t("nav.services")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={lang === "de" ? "/#about" : `/${lang}/#about`}
+            aria-label={lang === "de"
+              ? "Mehr über uns erfahren"
+              : lang === "it"
+                ? "Scopri di più su di noi"
+                : "Learn more about us"}
+            class="block px-3 py-2 text-base font-medium text-primary hover:text-primary-light transition-colors rounded"
+          >
+            {t("nav.about")}
+          </a>
+        </li>
+        <li>
+          <a
+            href={lang === "de" ? "/#contact" : `/${lang}/#contact`}
+            aria-label={lang === "de"
+              ? "Kontaktieren Sie uns"
+              : lang === "it"
+                ? "Contattaci"
+                : "Contact us"}
+            class="block px-3 py-2 text-base font-medium text-primary hover:text-primary-light transition-colors rounded"
+          >
+            {t("nav.contact")}
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <script>
-  // Mobile menu toggle
+  // Elements
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
+  const iconHamburger = document.getElementById("icon-hamburger");
+  const iconClose = document.getElementById("icon-close");
 
-  if (mobileMenuButton && mobileMenu) {
+  function setMenuState(open: boolean | undefined) {
+    if (!mobileMenuButton || !mobileMenu || !iconHamburger || !iconClose)
+      return;
+    mobileMenu.classList.toggle("hidden", !open);
+    mobileMenuButton.setAttribute("aria-expanded", String(open));
+    iconHamburger.classList.toggle("hidden", open);
+    iconClose.classList.toggle("hidden", !open);
+  }
+
+  if (mobileMenuButton) {
     mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      const isOpen = mobileMenu
+        ? !mobileMenu.classList.contains("hidden")
+        : false;
+      setMenuState(!isOpen);
     });
   }
 
   if (mobileMenu) {
     mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-      });
+      link.addEventListener("click", () => setMenuState(false));
     });
   }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenuState(false);
+  });
 
   // Language switcher
   const languageSelect = document.getElementById("language-select");
@@ -154,9 +262,7 @@ const currentPath = Astro.url.pathname;
       if (target && target instanceof HTMLSelectElement) {
         const selectedLang = target.value;
         let newPath = "/";
-        if (selectedLang !== "de") {
-          newPath = `/${selectedLang}`;
-        }
+        if (selectedLang !== "de") newPath = `/${selectedLang}`;
         window.location.href = newPath;
       }
     });

@@ -2,29 +2,87 @@
 import { Picture } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../utils/i18n";
 import AboutPic from "../assets/images/Leipzig_von_oben.jpg";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="about" class="py-16 bg-gray-50">
+<section id="about" class="py-16 bg-gray-50" aria-labelledby="about-heading">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
-      <div>
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-8">
+    <div class="grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+      <div class="order-1 lg:order-none lg:col-start-1">
+        <h2
+          id="about-heading"
+          class="text-3xl font-bold text-gray-900 sm:text-4xl mb-6"
+        >
           {t("about.title")}
         </h2>
         <p class="text-lg text-gray-700 leading-relaxed mb-8">
           {t("about.description")}
         </p>
+      </div>
 
-        <div class="space-y-6">
-          <h3 class="text-2xl font-bold text-gray-900 sm:text-4xl mb-10 mt-20">
-            {t("about.card.header")}
-          </h3>
-          <div class="flex items-start">
+      <section
+        class="order-2 lg:order-none lg:col-start-2 mt-6 lg:mt-0"
+        aria-label="Key figures"
+      >
+        <ul role="list" class="grid grid-cols-2 gap-4">
+          <li class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div
+              class="text-3xl font-bold text-primary mb-2"
+              aria-label="More than ten years"
+            >
+              {">10"}
+            </div>
+            <div class="text-gray-600">{t("stats.experience")}</div>
+          </li>
+          <li class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div
+              class="text-3xl font-bold text-primary mb-2"
+              aria-label="Over five hundred"
+            >
+              500+
+            </div>
+            <div class="text-gray-600">{t("stats.projects")}</div>
+          </li>
+          <li class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div
+              class="text-3xl font-bold text-primary mb-2"
+              aria-label="More than eight"
+            >
+              8+
+            </div>
+            <div class="text-gray-600">{t("stats.sector")}</div>
+          </li>
+          <li class="bg-white p-6 rounded-lg shadow-md text-center">
+            <div
+              class="text-3xl font-bold text-primary mb-2"
+              aria-label="Under forty-eight hours"
+            >
+              {"<48h"}
+            </div>
+            <div class="text-gray-600">{t("stats.support")}</div>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="order-3 lg:order-none lg:col-start-1 mt-10 lg:mt-8"
+        aria-labelledby="strengths-heading"
+      >
+        <h3
+          id="strengths-heading"
+          class="text-2xl font-bold text-gray-900 sm:text-3xl mb-8"
+        >
+          {t("about.card.header")}
+        </h3>
+
+        <ul role="list" class="space-y-6">
+          <li class="flex items-start">
             <div class="flex-shrink-0">
               <div
                 class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+                aria-hidden="true"
               >
                 <svg
                   class="w-4 h-4 text-white"
@@ -33,8 +91,9 @@ const t = useTranslations(lang);
                 >
                   <path
                     fill-rule="evenodd"
+                    clip-rule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
+                  ></path>
                 </svg>
               </div>
             </div>
@@ -42,16 +101,15 @@ const t = useTranslations(lang);
               <h4 class="text-lg font-semibold text-gray-900">
                 {t("about.card.1.title")}
               </h4>
-              <p class="text-gray-600">
-                {t("about.card.1.description")}
-              </p>
+              <p class="text-gray-600">{t("about.card.1.description")}</p>
             </div>
-          </div>
+          </li>
 
-          <div class="flex items-start">
+          <li class="flex items-start">
             <div class="flex-shrink-0">
               <div
                 class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+                aria-hidden="true"
               >
                 <svg
                   class="w-4 h-4 text-white"
@@ -60,81 +118,61 @@ const t = useTranslations(lang);
                 >
                   <path
                     fill-rule="evenodd"
+                    clip-rule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"></path>
+                  ></path>
                 </svg>
               </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-semibold text-gray-900">
-                  {t("about.card.2.title")}
-                </h4>
-                <p class="text-gray-600">
-                  {t("about.card.2.description")}
-                </p>
-              </div>
             </div>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">
+                {t("about.card.2.title")}
+              </h4>
+              <p class="text-gray-600">{t("about.card.2.description")}</p>
+            </div>
+          </li>
 
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <div
-                  class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+          <li class="flex items-start">
+            <div class="flex-shrink-0">
+              <div
+                class="flex items-center justify-center w-8 h-8 bg-primary rounded-full"
+                aria-hidden="true"
+              >
+                <svg
+                  class="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                 >
-                  <svg
-                    class="w-4 h-4 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-4">
-                <h4 class="text-lg font-semibold text-gray-900">
-                  {t("about.card.3.title")}
-                </h4>
-                <p class="text-gray-600">
-                  {t("about.card.3.description")}
-                </p>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  ></path>
+                </svg>
               </div>
             </div>
-          </div>
-        </div>
+            <div class="ml-4">
+              <h4 class="text-lg font-semibold text-gray-900">
+                {t("about.card.3.title")}
+              </h4>
+              <p class="text-gray-600">{t("about.card.3.description")}</p>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-        <div class="mt-12 lg:mt-0">
-          <div class="grid grid-cols-2 gap-4 mb-12">
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <div class="text-3xl font-bold text-primary mb-2">{">10"}</div>
-              <div class="text-gray-600">{t("stats.experience")}</div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <div class="text-3xl font-bold text-primary mb-2">500+</div>
-              <div class="text-gray-600">{t("stats.projects")}</div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <div class="text-3xl font-bold text-primary mb-2">8+</div>
-              <div class="text-gray-600">{t("stats.sector")}</div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-              <div class="text-3xl font-bold text-primary mb-2">{"<48h"}</div>
-              <div class="text-gray-600">{t("stats.support")}</div>
-            </div>
-          </div>
-
-          <div
-            class="mt-12 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center"
-          >
-            <Picture
-              formats={["avif", "webp"]}
-              src={AboutPic}
-              class="rounded-md"
-              width="650"
-              densities={[1, 2, 3]}
-              alt="Skyline von Leipzig"
-            />
-          </div>
+      <div class="order-4 lg:order-none lg:col-start-2 mt-10 lg:mt-0">
+        <div
+          class="sm:max-w-lg sm:mx-auto lg:max-w-none lg:mx-0 lg:flex lg:items-center"
+        >
+          <Picture
+            formats={["avif", "webp"]}
+            src={AboutPic}
+            class="rounded-md"
+            width={650}
+            densities={[1, 2, 3]}
+            alt="Skyline von Leipzig"
+          />
         </div>
       </div>
     </div>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage - German (default) -->
+  <url>
+    <loc>https://tax-meyer.de/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tax-meyer.de/"/>
+  </url>
+
+  <!-- Homepage - English -->
+  <url>
+    <loc>https://tax-meyer.de/en/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tax-meyer.de/"/>
+  </url>
+
+  <!-- Homepage - Italian -->
+  <url>
+    <loc>https://tax-meyer.de/it/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tax-meyer.de/"/>
+  </url>
+
+  <!-- Impressum/Imprint - German -->
+  <url>
+    <loc>https://tax-meyer.de/impressum</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/impressum"/>
+  </url>
+
+  <!-- Impressum/Imprint - English -->
+  <url>
+    <loc>https://tax-meyer.de/en/imprint</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/impressum"/>
+  </url>
+
+  <!-- Impressum/Imprint - Italian -->
+  <url>
+    <loc>https://tax-meyer.de/it/impressum</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/imprint"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/impressum"/>
+  </url>
+
+  <!-- Privacy/Datenschutz - German -->
+  <url>
+    <loc>https://tax-meyer.de/datenschutz</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/protezionedati"/>
+  </url>
+
+  <!-- Privacy/Datenschutz - English -->
+  <url>
+    <loc>https://tax-meyer.de/en/privacy</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/protezionedati"/>
+  </url>
+
+  <!-- Privacy/Datenschutz - Italian -->
+  <url>
+    <loc>https://tax-meyer.de/it/protezionedati</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://tax-meyer.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tax-meyer.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://tax-meyer.de/it/protezionedati"/>
+  </url>
+
+</urlset>

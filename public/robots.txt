@@ -1,0 +1,11 @@
+# robots.txt for tax-meyer.de
+
+# Allow all bots to crawl everything
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tax-meyer.de/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

@@ -99,15 +99,63 @@ const alt = {
 } as const;
 const xDefault = alt.en;
 
-/** Basic Organization JSON-LD */
+/** Enhanced JSON-LD Structured Data */
+
+// Organization & ProfessionalService
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${origin}/#organization`,
   name: "Meyer Tax",
+  alternateName: "Daniel Meyer Tax Consulting",
   url: origin,
   email: "info@tax-meyer.de",
-  logo: `${origin}/lm_logo.png`,
-  sameAs: ["https://www.linkedin.com/in/daniel-meyer-7bb221152/"]
+  logo: {
+    "@type": "ImageObject",
+    url: `${origin}/lm_logo.png`,
+    width: "192",
+    height: "192"
+  },
+  image: `${origin}/og-image.jpg`,
+  description: "Digitale, mehrsprachige Steuerberatung für Deutschland, Österreich, Schweiz und Italien. Digital multilingual tax consulting.",
+  sameAs: ["https://www.linkedin.com/in/daniel-meyer-7bb221152/"],
+  areaServed: [
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Austria" },
+    { "@type": "Country", "name": "Switzerland" },
+    { "@type": "Country", "name": "Italy" }
+  ],
+  serviceType: ["Tax Consulting", "Steuerberatung", "Consulenza fiscale"],
+  knowsLanguage: ["de", "en", "it"],
+  priceRange: "$$"
+};
+
+// WebSite with SearchAction
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${origin}/#website`,
+  url: origin,
+  name: "Meyer Tax",
+  description: "Digitale, mehrsprachige Steuerberatung",
+  publisher: {
+    "@id": `${origin}/#organization`
+  },
+  inLanguage: ["de", "en", "it"]
+};
+
+// Person - Daniel Meyer
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${origin}/#person`,
+  name: "Daniel Meyer",
+  jobTitle: "Tax Consultant / Steuerberater",
+  worksFor: {
+    "@id": `${origin}/#organization`
+  },
+  sameAs: ["https://www.linkedin.com/in/daniel-meyer-7bb221152/"],
+  knowsLanguage: ["de", "en", "it"]
 };
 ---
 
@@ -119,8 +167,17 @@ const orgJsonLd = {
     <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/lm_logo.png" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e40af" />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonicalUrl} />
@@ -133,6 +190,12 @@ const orgJsonLd = {
 
     <!-- Robots -->
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+
+    <!-- Geo-targeting -->
+    <meta name="geo.region" content="DE;AT;CH;IT" />
+    <meta name="geo.placename" content="Germany;Austria;Switzerland;Italy" />
+    <meta name="language" content={lang} />
+    <meta name="author" content="Daniel Meyer" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -153,10 +216,10 @@ const orgJsonLd = {
     <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={`${origin}/og-image.jpg?v=2`} />
 
-    <!-- JSON-LD Organization -->
-    <script type="application/ld+json" is:inline>
-      {JSON.stringify(orgJsonLd)}
-    </script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(orgJsonLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteJsonLd)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personJsonLd)} />
   </head>
   <body class="font-sans bg-background">
     <slot />

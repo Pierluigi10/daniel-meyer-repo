@@ -1,0 +1,29 @@
+{
+  "name": "Meyer Tax - Steuerberatung · Tax Consulting · Consulenza fiscale",
+  "short_name": "Meyer Tax",
+  "description": "Digitale, mehrsprachige Steuerberatung · Digital, multilingual tax consulting · Consulenza fiscale digitale e multilingue",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lm_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/lm_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

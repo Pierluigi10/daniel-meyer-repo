@@ -73,7 +73,12 @@ export const translations = {
     'cookies.reject': 'Nur Essenzielle',
     'cookies.save': 'Auswahl speichern',
     'cookies.link.privacy': 'Datenschutzerklärung',
-    'cookies.link.imprint': 'Impressum'
+    'cookies.link.imprint': 'Impressum',
+    '404.title': 'Seite nicht gefunden',
+    '404.subtitle': 'Die gesuchte Seite existiert leider nicht.',
+    '404.description': 'Die Seite, die Sie aufrufen möchten, wurde verschoben, umbenannt oder existiert nicht mehr. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück.',
+    '404.home': 'Zur Startseite',
+    '404.contact': 'Kontakt aufnehmen'
   },
   en: {
     'nav.home': 'Home',
@@ -141,7 +146,12 @@ export const translations = {
     'cookies.reject': 'Essential only',
     'cookies.save': 'Save selection',
     'cookies.link.privacy': 'Privacy Policy',
-    'cookies.link.imprint': 'Imprint'
+    'cookies.link.imprint': 'Imprint',
+    '404.title': 'Page not found',
+    '404.subtitle': 'The page you are looking for does not exist.',
+    '404.description': 'The page you are trying to access has been moved, renamed, or no longer exists. Please check the URL or return to the homepage.',
+    '404.home': 'Go to homepage',
+    '404.contact': 'Contact us'
   },
   it: {
     'nav.home': 'Home',
@@ -209,7 +219,12 @@ export const translations = {
     'cookies.reject': 'Solo essenziali',
     'cookies.save': 'Salva selezione',
     'cookies.link.privacy': 'Protezione dati',
-    'cookies.link.imprint': 'Impressum'
+    'cookies.link.imprint': 'Impressum',
+    '404.title': 'Pagina non trovata',
+    '404.subtitle': 'La pagina che stai cercando non esiste.',
+    '404.description': 'La pagina che stai cercando di accedere è stata spostata, rinominata o non esiste più. Controlla l\'URL o torna alla homepage.',
+    '404.home': 'Vai alla homepage',
+    '404.contact': 'Contattaci'
   }
 };
 

@@ -159,7 +159,7 @@ export const translations = {
     'nav.about': 'Chi siamo',
     'nav.contact': 'Contatti',
     'hero.title': 'Consulenza Fiscale',
-    'hero.subtitle': 'Tasse semplificate – multilingue, digitale, a prova di futuro.',
+    'hero.subtitle': 'Il primo studio commercialista dedicato agli italiani in Germania! Tasse semplificate – multilingue, digitale, a prova di futuro.',
     'hero.description': 'Ti accompagniamo passo dopo passo – dalla prima analisi dei documenti fino alla dichiarazione dei redditi completata. Rendiamo comprensibili le questioni complesse, offriamo consulenza chiara e ti aiutiamo a prendere decisioni sicure e consapevoli.',
     'hero.cta': 'Contattaci',
     'services.title': 'I nostri servizi',

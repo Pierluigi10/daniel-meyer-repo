@@ -1,0 +1,119 @@
+---
+import { getLangFromUrl, useTranslations } from "../utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const faqs = [
+  { question: t("faq.q1"), answer: t("faq.a1") },
+  { question: t("faq.q2"), answer: t("faq.a2") },
+  { question: t("faq.q3"), answer: t("faq.a3") },
+  { question: t("faq.q4"), answer: t("faq.a4") },
+];
+
+// Schema.org structured data for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" class="py-16 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+        {t("faq.title")}
+      </h2>
+      <p class="text-lg text-gray-600">
+        {t("faq.subtitle")}
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {
+        faqs.map((faq, index) => (
+          <div class="faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+            <details class="group">
+              <summary class="flex justify-between items-center cursor-pointer list-none p-6 hover:bg-gray-50 transition-colors">
+                <h3 class="text-lg font-semibold text-gray-900 pr-8">
+                  {faq.question}
+                </h3>
+                <div class="faq-icon flex-shrink-0">
+                  <svg
+                    class="w-6 h-6"
+                    style="color: var(--color-primary);"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2.5"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                </div>
+              </summary>
+
+              <div class="faq-content px-6 pb-6 pt-2">
+                <p class="text-gray-700 leading-relaxed">{faq.answer}</p>
+              </div>
+            </details>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] .faq-icon svg {
+    transform: rotate(45deg);
+    color: var(--color-accent) !important;
+  }
+
+  .faq-icon svg {
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+
+  details:hover .faq-icon svg {
+    color: var(--color-primary-dark) !important;
+  }
+
+  details[open] .faq-content {
+    animation: faq-open 0.3s ease-out;
+  }
+
+  @keyframes faq-open {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

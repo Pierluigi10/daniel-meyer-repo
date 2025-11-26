@@ -78,7 +78,17 @@ export const translations = {
     '404.subtitle': 'Die gesuchte Seite existiert leider nicht.',
     '404.description': 'Die Seite, die Sie aufrufen möchten, wurde verschoben, umbenannt oder existiert nicht mehr. Bitte überprüfen Sie die URL oder kehren Sie zur Startseite zurück.',
     '404.home': 'Zur Startseite',
-    '404.contact': 'Kontakt aufnehmen'
+    '404.contact': 'Kontakt aufnehmen',
+    'faq.title': 'Häufig gestellte Fragen',
+    'faq.subtitle': 'Antworten auf die wichtigsten Fragen zu Steuern und Steuerberatung',
+    'faq.q1': 'Wie funktioniert die Doppelbesteuerung Italien-Deutschland?',
+    'faq.a1': 'Die Doppelbesteuerung zwischen Italien und Deutschland wird durch das Doppelbesteuerungsabkommen (DBA) geregelt. Dieses Abkommen verhindert, dass Einkommen in beiden Ländern besteuert wird. In der Regel gilt: Einkünfte aus selbständiger oder unselbständiger Arbeit werden im Land der Arbeitsausübung besteuert. Renteneinkommen werden meist im Wohnsitzland besteuert. Bei Immobilieneinkünften gilt das Belegenheitsprinzip. Wichtig ist, dass Sie Ihre steuerliche Ansässigkeit korrekt bestimmen und alle Einkünfte in beiden Ländern deklarieren. Wir helfen Ihnen, die komplexen Regelungen zu verstehen und Ihre Steuererklärungen korrekt in beiden Ländern einzureichen.',
+    'faq.q2': 'Was brauche ich, um eine Partita IVA in Deutschland zu eröffnen?',
+    'faq.a2': 'In Deutschland gibt es kein direktes Äquivalent zur italienischen Partita IVA, aber Sie benötigen eine Steuernummer vom Finanzamt. Für die Gewerbeanmeldung benötigen Sie: einen gültigen Personalausweis oder Reisepass, eine Meldebescheinigung (Anmeldung beim Einwohnermeldeamt), eine Beschreibung Ihrer geplanten Tätigkeit, und bei bestimmten Tätigkeiten zusätzliche Genehmigungen. Nach der Gewerbeanmeldung erhalten Sie automatisch Post vom Finanzamt mit einem Fragebogen zur steuerlichen Erfassung. Nach Ausfüllung dieses Fragebogens erhalten Sie Ihre Steuernummer und bei Bedarf auch eine Umsatzsteuer-Identifikationsnummer (USt-IdNr.). Wir unterstützen Sie durch den gesamten Prozess und stellen sicher, dass alle Formulare korrekt ausgefüllt sind.',
+    'faq.q3': 'Wie viel kostet ein Steuerberater in Deutschland?',
+    'faq.a3': 'Die Kosten für einen Steuerberater in Deutschland richten sich nach der Steuerberatervergütungsverordnung (StBVV). Die Gebühren sind gestaffelt und hängen vom Gegenstandswert (z.B. Ihrem Einkommen oder Umsatz) sowie der Schwierigkeit des Falls ab. Für eine private Einkommensteuererklärung können die Kosten zwischen 200€ und 1.500€ liegen. Für Unternehmer variieren die Kosten je nach Umfang der Leistungen: Buchhaltung, Jahresabschluss, Steuererklärungen. Wir bieten transparente Preisgestaltung und erstellen Ihnen gerne ein individuelles Angebot basierend auf Ihrem spezifischen Bedarf. Ein kostenloses Erstgespräch hilft uns, Ihre Situation zu verstehen und einen fairen Preis zu kalkulieren.',
+    'faq.q4': 'Wie erstellt man die deutsche Steuererklärung?',
+    'faq.a4': 'Die deutsche Steuererklärung erfolgt hauptsächlich elektronisch über das ELSTER-Portal (Elektronische Steuererklärung). Sie benötigen verschiedene Unterlagen: Lohnsteuerbescheinigung(en) vom Arbeitgeber, Belege für Werbungskosten, Sonderausgaben und außergewöhnliche Belastungen, Nachweise über Versicherungsbeiträge, Spendenbescheinigungen, und bei Immobilien entsprechende Unterlagen. Die Erklärung besteht aus dem Mantelbogen und verschiedenen Anlagen je nach Einkommensart (Anlage N für Arbeitnehmer, Anlage V für Vermietung, usw.). Der Prozess kann komplex sein, besonders wenn Sie Einkünfte aus mehreren Quellen oder aus dem Ausland haben. Wir übernehmen die komplette Erstellung Ihrer Steuererklärung, sammeln die notwendigen Unterlagen mit Ihnen zusammen und sorgen dafür, dass Sie alle möglichen Steuervorteile nutzen.'
   },
   en: {
     'nav.home': 'Home',
@@ -151,7 +161,17 @@ export const translations = {
     '404.subtitle': 'The page you are looking for does not exist.',
     '404.description': 'The page you are trying to access has been moved, renamed, or no longer exists. Please check the URL or return to the homepage.',
     '404.home': 'Go to homepage',
-    '404.contact': 'Contact us'
+    '404.contact': 'Contact us',
+    'faq.title': 'Frequently Asked Questions',
+    'faq.subtitle': 'Answers to the most important questions about taxes and tax consulting',
+    'faq.q1': 'How does double taxation work between Italy and Germany?',
+    'faq.a1': 'Double taxation between Italy and Germany is regulated by the Double Taxation Agreement (DTA). This agreement prevents income from being taxed in both countries. Generally: income from self-employment or employment is taxed in the country where the work is performed. Pension income is usually taxed in the country of residence. For real estate income, the location principle applies. It is important to correctly determine your tax residency and declare all income in both countries. We help you understand the complex regulations and correctly file your tax returns in both countries.',
+    'faq.q2': 'What do I need to open a Partita IVA (VAT number) in Germany?',
+    'faq.a2': 'In Germany, there is no direct equivalent to the Italian Partita IVA, but you need a tax number from the tax office. For business registration you need: a valid ID card or passport, a registration certificate (registration at the residents\' registration office), a description of your planned activity, and for certain activities additional permits. After business registration, you will automatically receive mail from the tax office with a tax registration questionnaire. After completing this questionnaire, you will receive your tax number and, if needed, a VAT identification number (USt-IdNr.). We support you through the entire process and ensure that all forms are filled out correctly.',
+    'faq.q3': 'How much does a tax consultant cost in Germany?',
+    'faq.a3': 'The costs for a tax consultant in Germany are based on the Tax Consultant Remuneration Regulation (StBVV). The fees are graduated and depend on the value in dispute (e.g., your income or turnover) and the difficulty of the case. For a private income tax return, costs can range between €200 and €1,500. For entrepreneurs, costs vary depending on the scope of services: bookkeeping, annual financial statements, tax returns. We offer transparent pricing and are happy to provide you with an individual quote based on your specific needs. A free initial consultation helps us understand your situation and calculate a fair price.',
+    'faq.q4': 'How do you prepare the German tax return?',
+    'faq.a4': 'The German tax return is mainly done electronically via the ELSTER portal (Electronic Tax Return). You need various documents: tax certificate(s) from your employer, receipts for work-related expenses, special expenses and extraordinary burdens, proof of insurance contributions, donation receipts, and for real estate the corresponding documents. The return consists of the main form and various annexes depending on the type of income (Annex N for employees, Annex V for rental income, etc.). The process can be complex, especially if you have income from multiple sources or from abroad. We take care of the complete preparation of your tax return, collect the necessary documents with you, and ensure that you take advantage of all possible tax benefits.'
   },
   it: {
     'nav.home': 'Home',
@@ -224,7 +244,17 @@ export const translations = {
     '404.subtitle': 'La pagina che stai cercando non esiste.',
     '404.description': 'La pagina che stai cercando di accedere è stata spostata, rinominata o non esiste più. Controlla l\'URL o torna alla homepage.',
     '404.home': 'Vai alla homepage',
-    '404.contact': 'Contattaci'
+    '404.contact': 'Contattaci',
+    'faq.title': 'Domande Frequenti',
+    'faq.subtitle': 'Risposte alle domande più importanti su tasse e consulenza fiscale',
+    'faq.q1': 'Come funziona la doppia imposizione Italia-Germania?',
+    'faq.a1': 'La doppia imposizione tra Italia e Germania è regolata dalla Convenzione contro le Doppie Imposizioni. Questo accordo impedisce che il reddito venga tassato in entrambi i paesi. In generale: i redditi da lavoro autonomo o dipendente sono tassati nel paese dove viene svolta l\'attività. I redditi da pensione sono generalmente tassati nel paese di residenza. Per i redditi immobiliari si applica il principio della localizzazione. È importante determinare correttamente la tua residenza fiscale e dichiarare tutti i redditi in entrambi i paesi. Ti aiutiamo a comprendere le complesse normative e a presentare correttamente le dichiarazioni fiscali in entrambi i paesi.',
+    'faq.q2': 'Cosa serve per aprire una partita IVA in Germania?',
+    'faq.a2': 'In Germania non esiste un equivalente diretto della partita IVA italiana, ma è necessario ottenere un numero fiscale (Steuernummer) dall\'ufficio delle imposte. Per la registrazione dell\'attività (Gewerbeanmeldung) ti servono: un documento d\'identità o passaporto valido, un certificato di residenza (Anmeldung presso l\'ufficio anagrafe), una descrizione dell\'attività che intendi svolgere, e per alcune attività permessi aggiuntivi. Dopo la registrazione, riceverai automaticamente una comunicazione dall\'ufficio delle imposte con un questionario per la registrazione fiscale. Dopo aver compilato questo questionario, riceverai il tuo numero fiscale e, se necessario, anche una partita IVA comunitaria (USt-IdNr.). Ti supportiamo durante tutto il processo e ci assicuriamo che tutti i moduli siano compilati correttamente.',
+    'faq.q3': 'Quanto costa un commercialista in Germania?',
+    'faq.a3': 'I costi per un commercialista in Germania si basano sul Regolamento sui compensi dei consulenti fiscali (StBVV). Le tariffe sono graduate e dipendono dal valore dell\'oggetto (ad es. il tuo reddito o fatturato) e dalla complessità del caso. Per una dichiarazione dei redditi privata, i costi possono variare tra €200 e €1.500. Per gli imprenditori, i costi variano a seconda dell\'ampiezza dei servizi: contabilità, bilancio annuale, dichiarazioni fiscali. Offriamo prezzi trasparenti e saremo lieti di fornirti un preventivo personalizzato in base alle tue esigenze specifiche. Una consulenza iniziale gratuita ci aiuta a comprendere la tua situazione e a calcolare un prezzo equo.',
+    'faq.q4': 'Come si compila la dichiarazione dei redditi tedesca?',
+    'faq.a4': 'La dichiarazione dei redditi tedesca viene compilata principalmente in formato elettronico tramite il portale ELSTER (Dichiarazione dei Redditi Elettronica). Ti servono vari documenti: certificato(i) fiscale dal datore di lavoro, ricevute per spese professionali, spese speciali e oneri straordinari, prove dei contributi assicurativi, ricevute di donazioni, e per gli immobili i relativi documenti. La dichiarazione è composta dal modulo principale e da vari allegati a seconda del tipo di reddito (Allegato N per i dipendenti, Allegato V per i redditi da locazione, ecc.). Il processo può essere complesso, specialmente se hai redditi da più fonti o dall\'estero. Ci occupiamo della compilazione completa della tua dichiarazione dei redditi, raccogliamo con te i documenti necessari e ci assicuriamo che tu possa beneficiare di tutti i possibili vantaggi fiscali.'
   }
 };
 

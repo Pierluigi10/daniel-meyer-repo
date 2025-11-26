@@ -28,7 +28,7 @@ const t = useTranslations(lang);
         <div
           class="bg-white p-8 rounded-xl shadow-lg border hover:shadow-xl transition-shadow"
         >
-          <div class="flex items-start space-x-6">
+          <div class="flex items-center space-x-6">
             <div
               class="flex items-center justify-center w-16 h-16 rounded-xl text-white flex-shrink-0"
               style="background: var(--color-primary);"
@@ -61,6 +61,66 @@ const t = useTranslations(lang);
                 info@tax-meyer.de
               </a>
               <p class="text-gray-600 mt-2">{t("contact.email.response")}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone Card -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-lg border hover:shadow-xl transition-shadow"
+        >
+          <div class="flex items-center space-x-6">
+            <div
+              class="flex items-center justify-center w-16 h-16 rounded-xl text-white flex-shrink-0"
+              style="background: var(--color-primary);"
+            >
+              <svg
+                class="w-8 h-8"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                {t("contact.phone")}
+              </h3>
+
+              <!-- German/English Number -->
+              <div class="mb-4 pb-4 border-b border-gray-100">
+                <div class="flex items-center gap-2">
+                  <span class="text-2xl" role="img" aria-label="German">🇩🇪</span>
+                  <span class="text-2xl" role="img" aria-label="English">🇬🇧</span>
+                  <a
+                    href="tel:+4934123037176"
+                    class="text-lg hover:underline transition-colors"
+                    style="color: var(--color-primary);"
+                  >
+                    +49 341 23037176
+                  </a>
+                </div>
+              </div>
+
+              <!-- Italian Number -->
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-2xl invisible" aria-hidden="true">🇩🇪</span>
+                  <span class="text-2xl" role="img" aria-label="Italian">🇮🇹</span>
+                  <a
+                    href="tel:+4934123037177"
+                    class="text-lg hover:underline transition-colors"
+                    style="color: var(--color-primary);"
+                  >
+                    +49 341 23037177
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

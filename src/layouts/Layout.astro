@@ -110,6 +110,7 @@ const orgJsonLd = {
   alternateName: "Daniel Meyer Tax Consulting",
   url: origin,
   email: "info@tax-meyer.de",
+  telephone: "+49-341-23037176",
   logo: {
     "@type": "ImageObject",
     url: `${origin}/lm_logo.png`,
@@ -119,6 +120,22 @@ const orgJsonLd = {
   image: `${origin}/og-image.jpg`,
   description: "Digitale, mehrsprachige Steuerberatung für Deutschland, Österreich, Schweiz und Italien. Digital multilingual tax consulting.",
   sameAs: ["https://www.linkedin.com/in/daniel-meyer-7bb221152/"],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+49-341-23037176",
+      contactType: "customer service",
+      availableLanguage: ["German", "English"],
+      areaServed: ["DE", "AT", "CH"]
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+49-341-23037177",
+      contactType: "customer service",
+      availableLanguage: ["Italian"],
+      areaServed: ["IT"]
+    }
+  ],
   areaServed: [
     { "@type": "Country", "name": "Germany" },
     { "@type": "Country", "name": "Austria" },

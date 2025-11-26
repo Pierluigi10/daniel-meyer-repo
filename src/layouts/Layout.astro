@@ -27,51 +27,51 @@ const SEO = {
     home: {
       title: "Steuerberatung | Meyer Tax – digital & mehrsprachig",
       desc:
-        "Digitale, mehrsprachige Steuerberatung. Transparent, sicher, papierlos. Jetzt kostenloses Erstgespräch vereinbaren."
+        "Digitale Steuerberatung für Deutschland, Österreich, Schweiz und Italien. Mehrsprachig, transparent, sicher, papierlos. Bundesweit verfügbar. Jetzt Erstgespräch vereinbaren!"
     },
     imprint: {
-      title: "Impressum | Meyer Tax",
+      title: "Impressum & Kontakt | Meyer Tax Steuerberatung Leipzig",
       desc:
-        "Rechtliche Angaben zu Meyer Tax – Verantwortliche, Kontakt und Unternehmensinformationen."
+        "Rechtliche Angaben und Kontakt zu Meyer Tax Steuerberatung in Leipzig. Wirtschaftsprüfer Daniel Meyer, Aufsichtsbehörde, Impressum gemäß §5 TMG."
     },
     privacy: {
-      title: "Datenschutzerklärung | Meyer Tax",
+      title: "Datenschutzerklärung | Meyer Tax Steuerberatung Leipzig",
       desc:
-        "Informationen zur Verarbeitung personenbezogener Daten, Cookies und Ihren Rechten."
+        "Datenschutzerklärung von Meyer Tax Leipzig: Informationen zur Datenverarbeitung, Cookies, Ihre Rechte nach DSGVO und Datensicherheit."
     }
   },
   en: {
     home: {
       title: "Tax Consulting | Meyer Tax – digital & multilingual",
       desc:
-        "Digital, multilingual tax consulting. Transparent, secure, paperless. Book a free initial consultation."
+        "Digital tax consulting for Germany, Austria, Switzerland, and Italy. Multilingual, transparent, secure, paperless. Available nationwide. Book your free consultation now!"
     },
     imprint: {
-      title: "Imprint | Meyer Tax",
+      title: "Imprint & Contact | Meyer Tax Tax Consulting Leipzig",
       desc:
-        "Legal information about Meyer Tax – responsible entity, contact and company details."
+        "Legal information and contact details for Meyer Tax in Leipzig. Auditor Daniel Meyer, supervisory authority, imprint according to German law."
     },
     privacy: {
-      title: "Privacy Policy | Meyer Tax",
+      title: "Privacy Policy | Meyer Tax Tax Consulting Leipzig",
       desc:
-        "Information about personal data processing, cookies and your rights."
+        "Privacy policy of Meyer Tax Leipzig: Information on data processing, cookies, your rights under GDPR, and data security measures."
     }
   },
   it: {
     home: {
       title: "Consulenza fiscale | Meyer Tax – digitale e multilingue",
       desc:
-        "Consulenza fiscale digitale e multilingue. Trasparente, sicura, senza carta. Prenota una prima consulenza gratuita."
+        "Consulenza fiscale digitale per Germania, Austria, Svizzera e Italia. Multilingue, trasparente, sicura, senza carta. Disponibile in tutta la Germania. Prenota ora!"
     },
     imprint: {
-      title: "Note legali | Meyer Tax",
+      title: "Note legali & Contatto | Meyer Tax Consulenza fiscale Lipsia",
       desc:
-        "Informazioni legali su Meyer Tax – responsabili, contatti e dati societari."
+        "Informazioni legali e contatto per Meyer Tax a Lipsia. Revisore Daniel Meyer, autorità di vigilanza, note legali secondo la legge tedesca."
     },
     privacy: {
-      title: "Informativa sulla privacy | Meyer Tax",
+      title: "Informativa privacy | Meyer Tax Consulenza fiscale Lipsia",
       desc:
-        "Informazioni sul trattamento dei dati personali, sui cookie e sui tuoi diritti."
+        "Informativa sulla privacy di Meyer Tax Lipsia: Trattamento dati, cookie, diritti GDPR e misure di sicurezza dei dati personali."
     }
   }
 } as const;
@@ -79,6 +79,13 @@ const SEO = {
 /** Final meta title/description with override capability via props */
 const metaTitle = title ?? SEO[lang][pageKey].title;
 const metaDescription = description ?? SEO[lang][pageKey].desc;
+
+/** Meta keywords per language */
+const metaKeywords = {
+  de: "Steuerberatung, Steuerberater Leipzig, Wirtschaftsprüfer, digitale Steuerberatung, mehrsprachig, Deutschland, Österreich, Schweiz, Italien, Steuerberatung Leipzig, Unternehmensbewertung, Wirtschaftsprüfung",
+  en: "tax consulting, tax consultant Leipzig, auditor, digital tax consulting, multilingual, Germany, Austria, Switzerland, Italy, Leipzig tax advisor, business valuation, audit",
+  it: "consulenza fiscale, consulente fiscale Lipsia, revisore, consulenza fiscale digitale, multilingue, Germania, Austria, Svizzera, Italia, consulente fiscale Lipsia, valutazione aziendale"
+} as const;
 
 /** Locale mapping for Open Graph */
 const ogLocaleByLang = { de: "de_DE", en: "en_US", it: "it_IT" } as const;
@@ -104,7 +111,7 @@ const xDefault = alt.en;
 // Organization & ProfessionalService & LocalBusiness
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+  "@type": ["Organization", "ProfessionalService", "LocalBusiness", "FinancialService"],
   "@id": `${origin}/#organization`,
   name: "Meyer Tax",
   alternateName: "Daniel Meyer Tax Consulting",
@@ -119,6 +126,11 @@ const orgJsonLd = {
     addressRegion: "Sachsen",
     addressCountry: "DE"
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 51.3397,
+    longitude: 12.4027
+  },
   logo: {
     "@type": "ImageObject",
     url: `${origin}/lm_logo.png`,
@@ -128,31 +140,55 @@ const orgJsonLd = {
   image: `${origin}/og-image.jpg`,
   description: "Digitale, mehrsprachige Steuerberatung für Deutschland, Österreich, Schweiz und Italien. Digital multilingual tax consulting.",
   sameAs: ["https://www.linkedin.com/in/daniel-meyer-7bb221152/"],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "19:00"
+    }
+  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
       telephone: "+49-341-23037176",
       contactType: "customer service",
       availableLanguage: ["German", "English"],
-      areaServed: ["DE", "AT", "CH"]
+      areaServed: ["DE", "AT", "CH"],
+      contactOption: "TollFree",
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "19:00"
+      }
     },
     {
       "@type": "ContactPoint",
       telephone: "+49-341-23037177",
       contactType: "customer service",
       availableLanguage: ["Italian"],
-      areaServed: ["IT"]
+      areaServed: ["IT"],
+      contactOption: "TollFree",
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "19:00"
+      }
     }
   ],
   areaServed: [
-    { "@type": "Country", "name": "Germany" },
-    { "@type": "Country", "name": "Austria" },
-    { "@type": "Country", "name": "Switzerland" },
-    { "@type": "Country", "name": "Italy" }
+    { "@type": "Country", "name": "Germany", "identifier": "DE" },
+    { "@type": "Country", "name": "Austria", "identifier": "AT" },
+    { "@type": "Country", "name": "Switzerland", "identifier": "CH" },
+    { "@type": "Country", "name": "Italy", "identifier": "IT" }
   ],
   serviceType: ["Tax Consulting", "Steuerberatung", "Consulenza fiscale"],
   knowsLanguage: ["de", "en", "it"],
-  priceRange: "$$"
+  priceRange: "$$",
+  paymentAccepted: ["Cash", "Invoice", "Bank Transfer"],
+  currenciesAccepted: "EUR"
 };
 
 // WebSite with SearchAction
@@ -190,6 +226,7 @@ const personJsonLd = {
     <meta charset="UTF-8" />
     <title>{metaTitle}</title>
     <meta name="description" content={metaDescription} />
+    <meta name="keywords" content={metaKeywords[lang]} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Google Search Console Verification -->

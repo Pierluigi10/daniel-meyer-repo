@@ -3,7 +3,54 @@ import { getLangFromUrl, useTranslations } from "../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const origin = Astro.url.origin;
+
+// Service Schema for SEO
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${origin}/#service-tax`,
+      "serviceType": "Tax Consulting",
+      "name": t("services.tax"),
+      "description": t("services.tax.desc"),
+      "provider": {
+        "@id": `${origin}/#organization`
+      },
+      "areaServed": ["DE", "AT", "CH", "IT"],
+      "availableLanguage": ["de", "en", "it"]
+    },
+    {
+      "@type": "Service",
+      "@id": `${origin}/#service-accounting`,
+      "serviceType": "Accounting and Auditing",
+      "name": t("services.accounting"),
+      "description": t("services.accounting.desc"),
+      "provider": {
+        "@id": `${origin}/#organization`
+      },
+      "areaServed": ["DE", "AT", "CH", "IT"],
+      "availableLanguage": ["de", "en", "it"]
+    },
+    {
+      "@type": "Service",
+      "@id": `${origin}/#service-consulting`,
+      "serviceType": "Business Valuation",
+      "name": t("services.consulting"),
+      "description": t("services.consulting.desc"),
+      "provider": {
+        "@id": `${origin}/#organization`
+      },
+      "areaServed": ["DE", "AT", "CH", "IT"],
+      "availableLanguage": ["de", "en", "it"]
+    }
+  ]
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
 
 <section id="services" class="py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

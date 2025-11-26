@@ -101,16 +101,24 @@ const xDefault = alt.en;
 
 /** Enhanced JSON-LD Structured Data */
 
-// Organization & ProfessionalService
+// Organization & ProfessionalService & LocalBusiness
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
+  "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
   "@id": `${origin}/#organization`,
   name: "Meyer Tax",
   alternateName: "Daniel Meyer Tax Consulting",
   url: origin,
   email: "info@tax-meyer.de",
   telephone: "+49-341-23037176",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Schulze-Boysen-Str. 2",
+    postalCode: "04317",
+    addressLocality: "Leipzig",
+    addressRegion: "Sachsen",
+    addressCountry: "DE"
+  },
   logo: {
     "@type": "ImageObject",
     url: `${origin}/lm_logo.png`,

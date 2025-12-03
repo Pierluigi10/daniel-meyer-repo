@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} noindex={true}>
   <Header />
   <main class="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-neutral-10 px-4">
     <div class="max-w-2xl mx-auto text-center py-16">

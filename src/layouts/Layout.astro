@@ -8,9 +8,10 @@ export interface Props {
   title?: string;
   description?: string;
   lang?: "de" | "en" | "it";
+  noindex?: boolean;
 }
 
-const { title, description, lang = "de" } = Astro.props;
+const { title, description, lang = "de", noindex = false } = Astro.props;
 
 /** Derive the current page key from the path: home | imprint | privacy */
 const path = Astro.url.pathname.toLowerCase();
@@ -254,7 +255,7 @@ const personJsonLd = {
     <link rel="alternate" href={xDefault} hreflang="x-default" />
 
     <!-- Robots -->
-    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+    <meta name="robots" content={noindex ? "noindex,nofollow" : "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"} />
 
     <!-- Geo-targeting -->
     <meta name="geo.region" content="DE;AT;CH;IT" />

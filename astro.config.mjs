@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://tax-meyer.de',
+  trailingSlash: 'never',
   integrations: [ react()],
     vite: {
         plugins: [ tailwindcss()],

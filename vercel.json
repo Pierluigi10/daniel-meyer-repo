@@ -2,12 +2,12 @@
   "regions": ["fra1"],
   "redirects": [
     {
-      "source": "/imprint",
+      "source": "/imprint/:trailing*",
       "destination": "/en/imprint",
       "permanent": true
     },
     {
-      "source": "/privacy",
+      "source": "/privacy/:trailing*",
       "destination": "/en/privacy",
       "permanent": true
     },
